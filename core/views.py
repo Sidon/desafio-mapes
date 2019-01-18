@@ -52,18 +52,17 @@ class ConsultaListView(ListView):
         context['table'] = table
         return context
 
-class ExamesListView(ListView):
+class ExameListView(ListView):
     model = ExameRealizado
     template_name = 'core/exame_list.html'
     context_object_name = 'ExameRealizado'
 
     def get_context_data(self, **kwargs):
-        context = super(ExamesListView, self).get_context_data(**kwargs)
+        context = super(ExameListView, self).get_context_data(**kwargs)
         table = ExamesTable(ExameRealizado.objects.all().order_by('-pk'))
         RequestConfig(self.request, paginate={'per_page': 10}).configure(table)
         context['table'] = table
         return context
-
 
 class ConsultaViewSet(DefaultsMixin, LoggingMixin, viewsets.ModelViewSet):
     serializer_class = ConsultaSerializer

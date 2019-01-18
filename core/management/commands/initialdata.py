@@ -44,6 +44,7 @@ class Command(BaseCommand):
         if User.objects.filter(Q(username='admin') & Q(is_superuser=1)):
             Consulta.objects.all().delete()
             ExameRealizado.objects.all().delete()
+            Exame.objects.all().delete()
             Logdb.objects.all().delete()
             
             for exame in exames:

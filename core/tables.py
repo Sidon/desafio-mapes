@@ -18,7 +18,7 @@ class ConsultaTable(tables.Table):
 
 
 class ExamesTable(tables.Table):
-    id = tables.LinkColumn(args=[A('pk')], attrs={'class': 'edit'}, viewname='core:update-exame')
+    # id = tables.LinkColumn(args=[A('pk')], attrs={'class': 'edit'}, viewname='core:update-exame')
     guia = tables.Column(accessor='consulta.numero_guia_consulta')
     exame = tables.Column(accessor='exame.descricao')
 
