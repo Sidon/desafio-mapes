@@ -31,7 +31,7 @@ exames_realizados = read_csv('exame.csv')
 exames = {}
 for exame in exames_realizados:
     key = exame[0]
-    descricao = 'ExameRealizado Laboratorial ' + exame[0]
+    descricao = 'Exame Laboratorial ' + exame[0]
     if not key in exames:
         exames[key] = descricao
 

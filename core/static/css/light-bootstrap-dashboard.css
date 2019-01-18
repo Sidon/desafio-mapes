@@ -212,15 +212,16 @@ body,
 .wrapper {
     min-height: 100vh;
     position: relative;
+
 }
 
 a {
-    color: #1DC7EA;
+    color: #054eea;
 }
 
 a:hover,
 a:focus {
-    color: #42d0ed;
+    color: #054eea;
     text-decoration: none;
 }
 
@@ -5328,6 +5329,13 @@ License - nucleoapp.com/license/
 
 .nc-zoom-split::before {
     content: "\ea64";
+}
+
+.mytable {
+  margin-top: 100px !important;
+  margin-bottom: 100px;
+  margin-right: 150px;
+  margin-left: 80px;
 }
 
 /* all icon font classes list here */

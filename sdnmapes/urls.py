@@ -11,5 +11,6 @@ app_name = 'sdnmapes'
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/token/', obtain_auth_token, name='api-token'),
+    path('api/', include(router.urls)),
     path('', include('core.urls'))
 ]

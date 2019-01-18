@@ -1,5 +1,5 @@
 {% load staticfiles %}
-{% load bootstrap4 %}
+{#{% load bootstrap4 %}#}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,7 +30,7 @@
     -->
             <div class="sidebar-wrapper">
                 <div class="logo">
-                    <a href="http://www.creative-tim.com" class="simple-text">
+                    <a href="https://mapesolutions.com/" class="simple-text">
                         Mapes Solutions
                     </a>
                 </div>
@@ -43,7 +43,7 @@
                     </li>
 
 
-                    <li class="nav-item {% if request.resolver_match.view_name == "core:cadastro" %}active{% endif %}">
+                    <li class="nav-item {% if request.resolver_match.view_name == "core:exames" %}active{% endif %}">
                         <a class="nav-link" href="{% url 'core:exames' %}">
                             <i class="nc-icon nc-layers-3"></i>
                             <p>Exames</p>
@@ -66,7 +66,7 @@
                         </a>
                     </li>
                     <li>
-                        <a class="nav-link" href="https://tikal-challenge.herokuapp.com/api/">
+                        <a class="nav-link" href="https://sdn-mapes.herokuapp.com/api/">
                             <i class="nc-icon nc-atom"></i>
                             <p>API</p>
                         </a>

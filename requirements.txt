@@ -1,7 +1,11 @@
 Django==2.1.5
 django-bootstrap4==0.0.7
+django-bootstrap3==10.0.1
 django-filter==2.0.0
 django-tables2==2.0.3
+django-debug-toolbar==1.9.1
+tablib<0.11.99
+
 djangorestframework==3.9.0
 docopt==0.6.2
 drf-tracking==1.5.0
