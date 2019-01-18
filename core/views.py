@@ -1,17 +1,14 @@
 from collections import namedtuple
 from django.http import HttpResponseRedirect
 from django.views.generic import ListView, CreateView, UpdateView
-
-from django_tables2 import MultiTableMixin, RequestConfig, SingleTableMixin, SingleTableView
-from django_tables2.paginators import LazyPaginator
-
+from django_tables2 import RequestConfig
 from django.core.exceptions import ValidationError
 from rest_framework import authentication, permissions, viewsets, filters
 from rest_framework_tracking.mixins import LoggingMixin
 from rest_framework_tracking.models import APIRequestLog
 from django_filters.rest_framework import DjangoFilterBackend
 from .models import Consulta, ExameRealizado, Logdb
-from .serializers import ConsultaSerializer, TrackSerializer, LogdbSerializer, ExameSerializer
+from .serializers import ConsultaSerializer, TrackSerializer, LogdbSerializer
 from .tables import ConsultaTable, ExamesTable, LogdbTable
 from .forms import ConsultaForm, ExameForm
 from util.logapi import Log_api
