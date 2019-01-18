@@ -10,7 +10,7 @@ class ConsultaSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Consulta
-        fields = ('numero_guia_consulta', 'codigo_medico', 'nome_medico', 'data_consulta',
+        fields = ('numero_guia_consulta', 'cod_medico', 'nome_medico', 'data_consulta',
                   'valor_consulta', 'links')
 
     def get_links(self, obj):
@@ -20,6 +20,25 @@ class ConsultaSerializer(serializers.ModelSerializer):
         if bool(request.POST):
             pass
         return links
+
+
+class ExamesSerializer(serializers.ModelSerializer):
+
+    links = serializers.SerializerMethodField()
+
+    class Meta:
+        model = Consulta
+        fields = ('consulta', 'valor_exame', 'links')
+
+    def get_links(self, obj):
+        request = self.context['request']
+        links = {'self': reverse('consulta-detail', kwargs={'pk': obj.pk}, request=request)}
+
+        if bool(request.POST):
+            pass
+        return links
+
+
 
 
 class LogdbSerializer(serializers.ModelSerializer):
