@@ -5,7 +5,6 @@ from django.views.generic import ListView, CreateView, UpdateView
 from django_tables2 import MultiTableMixin, RequestConfig, SingleTableMixin, SingleTableView
 from django_tables2.paginators import LazyPaginator
 
-
 from django.core.exceptions import ValidationError
 from rest_framework import authentication, permissions, viewsets, filters
 from rest_framework_tracking.mixins import LoggingMixin
