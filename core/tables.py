@@ -12,7 +12,7 @@ class ConsultaTable(tables.Table):
 
         model = Consulta
         fields = ('numero_guia_consulta','cod_medico', 'nome_medico', 'data_consulta', 'valor_consulta')
-        attrs = {"class": "table table-hover", 'thead': {'class': "thead-inverse"}  }
+        attrs = {"class": "table table-hover", 'thead': {'class': "thead-gray"}  }
         empty_text = "Não encontrado!"
         exclude = ("friendly",)
 
@@ -26,7 +26,7 @@ class ExamesTable(tables.Table):
         # template_name = "django_tables2/bootstrap4.html"
         template_name = "core/dt2_bs4.html"
         model = ExameRealizado
-        attrs = {"class": "table table-hover", 'thead': {'class': "thead-inverse"}  }
+        attrs = {"class": "table table-hover", 'thead': {'class': "thead-gray"}  }
         empty_text = "Não encontrado!"
         sequence =  ('id', 'exame', 'guia' ,'valor_exame')
         exclude = ('consulta',)

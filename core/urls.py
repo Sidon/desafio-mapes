@@ -11,7 +11,7 @@ router.register(r'api/logging', views.TrackingViewSet)
 
 
 urlpatterns = [
-    url(r' ', views.ConsultaListView.as_view(), name='home'),
+    url(r'', views.ConsultaListView.as_view(), name='home'),
     url(r'consultas/', views.ConsultaListView.as_view(), name='consultas'),
     url(r'exames/', views.ExamesListView.as_view(), name='exames'),
     url(r'log-posts/', views.LogdbListView.as_view(), name='logposts'),
