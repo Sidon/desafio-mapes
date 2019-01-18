@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from rest_framework.reverse import reverse
-from .models import Consulta, Logdb
+from .models import Consulta, Logdb, ExameRealizado
 from rest_framework_tracking.models import APIRequestLog
 
 
@@ -20,26 +20,6 @@ class ConsultaSerializer(serializers.ModelSerializer):
         if bool(request.POST):
             pass
         return links
-
-
-class ExameSerializer(serializers.ModelSerializer):
-
-    links = serializers.SerializerMethodField()
-
-    class Meta:
-        model = Consulta
-        fields = ('consulta', 'valor_exame', 'links')
-
-    def get_links(self, obj):
-        request = self.context['request']
-        links = {'self': reverse('consulta-detail', kwargs={'pk': obj.pk}, request=request)}
-
-        if bool(request.POST):
-            pass
-        return links
-
-
-
 
 class LogdbSerializer(serializers.ModelSerializer):
 
@@ -77,3 +57,23 @@ class TrackSerializer(serializers.ModelSerializer):
         if bool(request.POST):
             pass
         return links
+
+
+# TODO API para exames realizados
+'''
+class ExameSerializer(serializers.ModelSerializer):
+
+    links = serializers.SerializerMethodField()
+
+    class Meta:
+        model = ExameRealizado
+        fields = ('consulta', 'valor_exame', 'links')
+
+    def get_links(self, obj):
+        request = self.context['request']
+        links = {'self': reverse('consulta-detail', kwargs={'pk': obj.pk}, request=request)}
+
+        if bool(request.POST):
+            pass
+        return links
+'''
