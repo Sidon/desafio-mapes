@@ -1,5 +1,5 @@
 from django.contrib import admin
-from core.models import Consulta, ExameRealizado
+from core.models import Consulta, Exame, ExameRealizado
 
 __author__ = "Sidon Duarte"
 __date__ = "Created by 18/01/19"
@@ -21,9 +21,21 @@ class ConsultaAdmin(admin.ModelAdmin):
     inlines = (ExamesInline,)
     list_per_page = LIST_PER_PAGE
 
+
+@admin.register(Exame)
+class ExameAdmin(admin.ModelAdmin):
+    list_display = ['cod_exame', 'descricao']
+    list_display_links = list_display
+    search_fields = ['descricao']
+    list_per_page = LIST_PER_PAGE
+
 @admin.register(ExameRealizado)
 class ExameRealizadoAdmin(admin.ModelAdmin):
-    list_display = ['exame', 'consulta', 'valor_exame']
-    list_display_links = list_display
-    search_fields = ['consulta']
+    list_display = ('id', 'guia_consulta','exame_realizado', 'valor_exame')
     list_per_page = LIST_PER_PAGE
+
+    def guia_consulta(self, instance):
+        return instance.consulta.numero_guia_consulta
+
+    def exame_realizado(self, instance):
+        return instance.exame.descricao
