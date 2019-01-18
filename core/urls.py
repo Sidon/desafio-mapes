@@ -6,7 +6,7 @@ app_name = 'core'
 
 router = DefaultRouter()
 router.register(r'api/consultas', views.ConsultaViewSet)
-router.register(r'api/exames', views.LogPostsViewSet)
+router.register(r'api/exames', views.ExamesViewSet)
 router.register(r'api/logging', views.TrackingViewSet)
 
 

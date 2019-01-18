@@ -22,7 +22,7 @@ class ConsultaSerializer(serializers.ModelSerializer):
         return links
 
 
-class ExamesSerializer(serializers.ModelSerializer):
+class ExameSerializer(serializers.ModelSerializer):
 
     links = serializers.SerializerMethodField()
 

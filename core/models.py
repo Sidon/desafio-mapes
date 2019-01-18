@@ -25,6 +25,13 @@ class Consulta(models.Model):
     data_consulta = models.DateField('Data da consulta')
     valor_consulta = models.DecimalField('Valor da consulta', max_digits=11, decimal_places=2, **bnull)
 
+    def __str__(self):
+        return self.numero_guia_consulta
+
+    class Meta:
+        verbose_name = 'Consulta'
+        verbose_name_plural = 'Consultas'
+
 
 class ExameRealizado(models.Model):
     exame = models.ForeignKey(Exame, related_name='realizados', on_delete=models.CASCADE)
