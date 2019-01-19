@@ -29,20 +29,10 @@ class Consulta(models.Model):
         verbose_name = 'Consulta'
         verbose_name_plural = 'Consultas'
 
-
 class ExameRealizado(models.Model):
     exame = models.ForeignKey(Exame, related_name='realizados', on_delete=models.CASCADE)
-    # cod_exame = models.IntegerField('Codigo ExameRealizado')
     consulta = models.ForeignKey(Consulta, related_name='exames', on_delete=models.CASCADE)
     valor_exame = models.DecimalField('Valor do exame', max_digits=11, decimal_places=2, **bnull)
-
-    # def __str__(self):
-    #     return str(self.id)
-
-    def get_exame(self):
-        verbose_name = 'Exame realizado'
-        return self.exame.descricao
-
 
     class Meta:
         verbose_name = 'Exame realizado'

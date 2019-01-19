@@ -8,10 +8,7 @@
         <form id="create-exame" action="" method="post">
             {% csrf_token %}
             {% bootstrap_form form %}
-{#            {{ form.as_p }}#}
-            <br/>
-            <br/>
-            <input type="submit" name="upload" value="Salvar">
+            <input type="submit" name="upload" value="Salvar" class="btn btn-default">
         </form>
     </div>
 {% endblock %}

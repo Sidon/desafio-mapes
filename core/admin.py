@@ -21,7 +21,6 @@ class ConsultaAdmin(admin.ModelAdmin):
     inlines = (ExamesInline,)
     list_per_page = LIST_PER_PAGE
 
-
 @admin.register(Exame)
 class ExameAdmin(admin.ModelAdmin):
     list_display = ['cod_exame', 'descricao']

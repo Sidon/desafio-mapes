@@ -7,11 +7,22 @@ from rest_framework_tracking.models import APIRequestLog
 class ConsultaSerializer(serializers.ModelSerializer):
 
     links = serializers.SerializerMethodField()
+    exames = serializers.SerializerMethodField()
+
+    def get_exames(self, instance):
+        lst_qset = []
+        if instance.id is not None:
+            qset = instance.exames.get_queryset()
+            for item in qset:
+                d = dict(id = item.id, exame = item.exame.descricao, valor = item.valor_exame )
+                lst_qset.append(d)
+        return lst_qset
+
 
     class Meta:
         model = Consulta
         fields = ('numero_guia_consulta', 'cod_medico', 'nome_medico', 'data_consulta',
-                  'valor_consulta', 'links')
+                  'valor_consulta', 'exames', 'links')
 
     def get_links(self, obj):
         request = self.context['request']

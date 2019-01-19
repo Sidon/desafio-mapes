@@ -52,6 +52,10 @@ class ConsultaListView(ListView):
         context['table'] = table
         return context
 
+
+
+
+
 class ExameListView(ListView):
     model = ExameRealizado
     template_name = 'core/exame_list.html'
