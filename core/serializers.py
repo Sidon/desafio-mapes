@@ -8,6 +8,7 @@ class ConsultaSerializer(serializers.ModelSerializer):
 
     links = serializers.SerializerMethodField()
     exames = serializers.SerializerMethodField()
+    valor_exames = serializers.SerializerMethodField()
 
     def get_exames(self, instance):
         lst_qset = []
@@ -17,6 +18,14 @@ class ConsultaSerializer(serializers.ModelSerializer):
                 d = dict(id = item.id, exame = item.exame.descricao, valor = item.valor_exame )
                 lst_qset.append(d)
         return lst_qset
+
+    def get_valor_exames(self, instance):
+        soma = 0
+        if instance.id is not None:
+            qset = instance.exames.get_queryset()
+            for item in qset:
+                soma += item.valor_exame
+        return soma
 
 
     class Meta:
@@ -31,6 +40,7 @@ class ConsultaSerializer(serializers.ModelSerializer):
         if bool(request.POST):
             pass
         return links
+
 
 class LogdbSerializer(serializers.ModelSerializer):
 
