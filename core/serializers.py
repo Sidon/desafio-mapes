@@ -31,7 +31,7 @@ class ConsultaSerializer(serializers.ModelSerializer):
     class Meta:
         model = Consulta
         fields = ('numero_guia_consulta', 'cod_medico', 'nome_medico', 'data_consulta',
-                  'valor_consulta', 'exames', 'links')
+                  'valor_consulta', 'valor_exames', 'exames', 'links')
 
     def get_links(self, obj):
         request = self.context['request']
