@@ -65,6 +65,11 @@ Para Instalar localmente
     $ python manage.py makemigrations
     $ python manage.py migrate
 
+    Obs.:
+      Para usar o postgres descomente o bloco de código em sdnmapes.settings
+
+
+
 3) Execute os testes do sistema :
 
 .. code-block::

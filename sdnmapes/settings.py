@@ -81,9 +81,6 @@ TEMPLATES = [
 WSGI_APPLICATION = 'sdnmapes.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/2.1/ref/settings/#databases
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -91,6 +88,20 @@ DATABASES = {
     }
 }
 
+
+# Para usar o postgres, descomente as linhas abaixo e corrija o servidor/bd para seu contexto
+'''
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'sndmapes',
+        'USER': 'sndmapes',
+        'PASSWORD': 'password',
+        'HOST': 'localhost',
+        'PORT': '',
+    }
+}
+'''
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
