@@ -53,6 +53,8 @@ cd
 python manager.py runserver
 ```
 
+
+
 Comandos Curl
 ***********************************
 
@@ -61,5 +63,26 @@ API Root:
 ::
 
     $ curl https://sdn-mapes.herokuapp.com/api/
-    {"api/consultas": "https://sdn-mapes.herokuapp.com/api/api/consultas/",
+    {"api/processos":"https://tikal-challenge.herokuapp.com/api/api/processos/",
     "api/logging":"https://tikal-challenge.herokuapp.com/api/api/logging/"}
+
+
+Listar consultas
+=========================
+::
+
+    curl -H 'Accept: application/json; indent=4' -u admin:master.21 curl https://sdn-mapes.herokuapp.com/api/consultas/
+    {
+        "count": 13,
+        "next": "https://tikal-challenge.herokuapp.com/api/api/processos/?page=2",
+        "previous": null,
+        "results": [
+            {
+                "user": 1,
+                "numero_processo": "00000000000000000001",
+                "dados_processo": "Amet porttitor eget dolor morbi. Magna fringilla urna porttitor rhoncus. In vitae turpis massa sed elementum.",
+                "links": {
+                    "self": "https://tikal-challenge.herokuapp.com/api/api/processos/32/"
+                }
+            },
+

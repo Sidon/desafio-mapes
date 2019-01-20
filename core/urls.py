@@ -5,8 +5,8 @@ from . import views
 app_name = 'core'
 
 router = DefaultRouter()
-router.register(r'api/consultas', views.ConsultaViewSet)
-router.register(r'api/logging', views.TrackingViewSet)
+router.register(r'consultas', views.ConsultaViewSet)
+router.register(r'logging', views.TrackingViewSet)
 # router.register(r'api/exames', views.ExamesViewSet)
 
 
