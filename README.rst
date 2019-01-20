@@ -195,7 +195,7 @@ Listar somente as 2 primeiras consultas
     ]
 
 
-Listar somente as consultas do médio cujo código é 124
+Listar somente as consultas do médico cujo código é 124
 ======================================================
 ::
 
