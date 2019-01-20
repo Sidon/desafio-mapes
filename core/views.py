@@ -5,7 +5,7 @@ from django_tables2 import RequestConfig
 from django.core.exceptions import ValidationError
 from rest_framework import authentication, permissions, viewsets, filters
 from rest_framework_tracking.mixins import LoggingMixin
-from rest_framework_tracking.models import APIRequestLog
+from rest_framework.generics import ListAPIView
 from django_filters.rest_framework import DjangoFilterBackend
 from .models import Consulta, ExameRealizado, Logdb
 from .serializers import ConsultaSerializer, TrackSerializer, LogdbSerializer
@@ -73,10 +73,16 @@ class ConsultaViewSet(DefaultsMixin, LoggingMixin, viewsets.ModelViewSet):
 
     def get_queryset(self):
         queryset = Consulta.objects.all()
-        num_Consulta = self.request.query_params.get('numero_Consulta', None)
         limit = self.request.query_params.get('limit', None)
         last = self.request.query_params.get('last', None)
         empty = self.request.query_params.get('empty', None)
+
+        # Filtrando por medico
+        codigo_medico = self.request.query_params.get('codigo_medico', None)
+
+        # Filtrando pelo numero da consulta
+        num_consulta = self.request.query_params.get('numero_consulta', None)
+
 
         if empty is not None:
             try:
@@ -85,12 +91,12 @@ class ConsultaViewSet(DefaultsMixin, LoggingMixin, viewsets.ModelViewSet):
             except Exception as e:
                 print(e)
 
-        if num_Consulta is not None:
-            return queryset.filter(numero_Consulta=num_Consulta)
+        if num_consulta is not None:
+            return queryset.filter(numero_guia_consulta=num_consulta)
+        elif codigo_medico is not None:
+            return queryset.filter(cod_medico=codigo_medico)
         elif limit is not None:
             return queryset[:int(limit)]
-        elif last is not None:
-            return queryset.order_by('-numero_Consulta')[:int(last)]
 
         return queryset
 
@@ -165,56 +171,8 @@ class ExameUpdateView(UpdateView):
 
 
 
-# TODO API para exames Realizados
-'''
-class ExamesViewSet(DefaultsMixin, LoggingMixin, viewsets.ModelViewSet):
-    serializer_class = ExameSerializer
-    search_fields = ('exame' )
-    queryset = ExameRealizado.objects.all()
-
-    def get_queryset(self):
-        queryset = ExameRealizado.objects.all()
-        num_Consulta = self.request.query_params.get('numero_Consulta', None)
-        limit = self.request.query_params.get('limit', None)
-        last = self.request.query_params.get('last', None)
-        empty = self.request.query_params.get('empty', None)
-
-        if empty is not None:
-            try:
-                Consulta.objects.all().delete()
-                raise ValidationError('Empty Ok')
-            except Exception as e:
-                print(e)
-
-        if num_Consulta is not None:
-            return queryset.filter(numero_Consulta=num_Consulta)
-        elif limit is not None:
-            return queryset[:int(limit)]
-        elif last is not None:
-            return queryset.order_by('-numero_Consulta')[:int(last)]
-
-        return queryset
-
-
-    def _perform(self, anterior):
-        self.request.query_params._mutable = True
-        self.request.query_params['user'] = self.request.user
-
-        return  {"user_id": str(self.request.user), "numero_Consulta": self.request.POST.get("numero_Consulta"),
-                "dados_atual": self.request.POST.get("dados_Consulta"),
-                "dados_anterior": anterior}
-
-
-    def perform_create(self, serializer):
-        data = self._perform('')
-        log_api.update_api(data)
-        serializer.save()
-
-
-    def perform_update(self, serializer):
-        anterior = Consulta.objects.filter(numero_Consulta=self.request.POST.get('numero_Consulta'))[0].dados_Consulta
-        data = self._perform(anterior)
-        log_api.update_api(data)
-        serializer.save()
-
-'''
+# class ListConsultasMedido(ListAPIView):
+#     serializer_class = None
+#
+#     def get_queryset(self):
+#         medico = self.request.medico

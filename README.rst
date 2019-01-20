@@ -5,8 +5,8 @@
 
 Descrição
 ***********
-O teste consiste em implementar um caso de uso.
-Exigências: django, jquery, ajax, bootstrap, postgres, teste unitário.
+| O teste consiste em implementar um caso de uso.
+| Exigências: django, jquery, ajax, bootstrap, postgres, teste unitário.
 
 
 :Date: **18/01/2019**
@@ -14,7 +14,7 @@ Exigências: django, jquery, ajax, bootstrap, postgres, teste unitário.
 
 TL;DR
 *******
-A aplicação foi hospedada no `Heroku <http://www.heroku.com>`_ . Para testá-la, `https://sdn-mapes.herokuapp.com/>`.
+A aplicação foi hospedada no `Heroku <http://www.heroku.com>`_ . Para testá-la clique: https://sdn-mapes.herokuapp.com/.
 
 Ambiente de desenvolvimento:
 ****************************
@@ -57,26 +57,34 @@ Para Instalar localmente
 
     pip install -r requirements.txt
 
-3) Execute os testes do sistema (criacao do BD):
+
+2) Crie o banco de dados
+
+.. code-block::
+
+    $ python manage.py makemigrations
+    $ python manage.py migrate
+
+3) Execute os testes do sistema :
 
 .. code-block::
 
     $ python manage.py test
 
-3) Crie o banco de dados com os dados iniciais
+4) Crie o banco de dados com os dados iniciais
 
 .. code-block::
 
     $ python manage.py initialdata
 
 
-4) Execute a aplicação:
+5) Execute a aplicação:
 
 .. code-block::
 
     $ python manage.py runserver
 
-5) Acesse a pagina principal
+6) Acesse a pagina principal
 
 .. code-block::
 
@@ -91,8 +99,7 @@ API Root:
 ::
 
     $ curl https://sdn-mapes.herokuapp.com/api/
-    {"api/processos":"https://tikal-challenge.herokuapp.com/api/api/processos/",
-    "api/logging":"https://tikal-challenge.herokuapp.com/api/api/logging/"}
+      "api/logging":"https://tikal-challenge.herokuapp.com/api/api/logging/"}
 
 
 Listar todas consultas
@@ -130,6 +137,7 @@ Listar todas consultas
         .....
 
     ]
+
 Listar somente as 2 primeiras consultas
 =======================================
 ::
@@ -177,6 +185,124 @@ Listar somente as 2 primeiras consultas
             ],
             "links": {
                 "self": "https://sdn-mapes.herokuapp.com/api/consultas/302/"
+            }
+        }
+    ]
+
+
+Listar somente as consultas do médio cujo código é 124
+======================================================
+::
+
+    curl -H 'Accept:application/json;indent=4' -u admin:master.21 https://sdn-mapes.herokuapp.com/api/consultas/?codigo_medico=124
+
+    [
+        {
+            "numero_guia_consulta": 2,
+            "cod_medico": 124,
+            "nome_medico": "José Ramos",
+            "data_consulta": "2017-02-02",
+            "valor_consulta": "91.00",
+            "valor_exames": 12.0,
+            "total_da_consulta": 103.0,
+            "exames": [
+                {
+                    "id": 244,
+                    "exame": "Exame Laboratorial 4444",
+                    "valor": 12.0
+                }
+            ],
+            "links": {
+                "self": "http://127.0.0.1:8000/api/consultas/302/"
+            }
+        },
+        {
+            "numero_guia_consulta": 7,
+            "cod_medico": 124,
+            "nome_medico": "José Ramos",
+            "data_consulta": "2017-02-03",
+            "valor_consulta": "91.00",
+            "valor_exames": 0,
+            "total_da_consulta": 91.0,
+            "exames": [],
+            "links": {
+                "self": "http://127.0.0.1:8000/api/consultas/307/"
+            }
+        },
+        {
+            "numero_guia_consulta": 12,
+            "cod_medico": 124,
+            "nome_medico": "José Ramos",
+            "data_consulta": "2017-02-04",
+            "valor_consulta": "91.00",
+            "valor_exames": 12.0,
+            "total_da_consulta": 103.0,
+            "exames": [
+                {
+                    "id": 247,
+                    "exame": "Exame Laboratorial 4444",
+                    "valor": 12.0
+                }
+            ],
+            "links": {
+                "self": "http://127.0.0.1:8000/api/consultas/312/"
+            }
+        },
+        {
+            "numero_guia_consulta": 17,
+            "cod_medico": 124,
+            "nome_medico": "José Ramos",
+            "data_consulta": "2017-02-05",
+            "valor_consulta": "91.00",
+            "valor_exames": 12.0,
+            "total_da_consulta": 103.0,
+            "exames": [
+                {
+                    "id": 248,
+                    "exame": "Exame Laboratorial 4444",
+                    "valor": 12.0
+                }
+            ],
+            "links": {
+                "self": "http://127.0.0.1:8000/api/consultas/317/"
+            }
+        },
+        {
+            "numero_guia_consulta": 22,
+            "cod_medico": 124,
+            "nome_medico": "José Ramos",
+            "data_consulta": "2017-02-07",
+            "valor_consulta": "93.00",
+            "valor_exames": 12.0,
+            "total_da_consulta": 105.0,
+            "exames": [
+                {
+                    "id": 250,
+                    "exame": "Exame Laboratorial 4444",
+                    "valor": 12.0
+                }
+            ],
+            "links": {
+                "self": "http://127.0.0.1:8000/api/consultas/322/"
+            }
+        },
+        {
+            "numero_guia_consulta": 27,
+            "cod_medico": 124,
+            "nome_medico": "José Ramos",
+            "data_consulta": "2018-02-01",
+            "valor_consulta": "93.00",
+            "valor_exames": 12.0,
+            "total_da_consulta": 105.0,
+            "exames": [
+                {
+                    "id": 252,
+                    "exame": "Exame Laboratorial 4444",
+                    "valor": 12.0
+                }
+            ],
+            "links": {
+                "self": "http://127.0.0.1:8000/api/consultas/327/"
             }
         }
     ]
