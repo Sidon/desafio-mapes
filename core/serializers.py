@@ -9,6 +9,7 @@ class ConsultaSerializer(serializers.ModelSerializer):
     links = serializers.SerializerMethodField()
     exames = serializers.SerializerMethodField()
     valor_exames = serializers.SerializerMethodField()
+    valor_consulta = serializers.DecimalField(max_digits=11, decimal_places=2)
 
     def get_exames(self, instance):
         lst_qset = []
@@ -27,11 +28,10 @@ class ConsultaSerializer(serializers.ModelSerializer):
                 soma += item.valor_exame
         return soma
 
-
     class Meta:
         model = Consulta
         fields = ('numero_guia_consulta', 'cod_medico', 'nome_medico', 'data_consulta',
-                  'valor_consulta', 'valor_exames', 'exames', 'links')
+                  'valor_consulta', 'valor_exames', 'total_da_consulta', 'exames', 'links')
 
     def get_links(self, obj):
         request = self.context['request']
@@ -79,22 +79,3 @@ class TrackSerializer(serializers.ModelSerializer):
             pass
         return links
 
-
-# TODO API para exames realizados
-'''
-class ExameSerializer(serializers.ModelSerializer):
-
-    links = serializers.SerializerMethodField()
-
-    class Meta:
-        model = ExameRealizado
-        fields = ('consulta', 'valor_exame', 'links')
-
-    def get_links(self, obj):
-        request = self.context['request']
-        links = {'self': reverse('consulta-detail', kwargs={'pk': obj.pk}, request=request)}
-
-        if bool(request.POST):
-            pass
-        return links
-'''

@@ -10,7 +10,8 @@ class ConsultaTable(tables.Table):
         # template_name = "django_tables2/bootstrap4.html"
         template_name = "core/dt2_bs4.html"
         model = Consulta
-        fields = ('numero_guia_consulta','cod_medico', 'nome_medico', 'data_consulta', 'valor_consulta', 'valor_exames')
+        fields = ('numero_guia_consulta','cod_medico', 'nome_medico', 'data_consulta', 'valor_consulta',
+                  'num_exames', 'valor_exames', 'total_da_consulta')
         attrs = {"class": "table table-hover", 'thead': {'class': "thead-light"}  }
         empty_text = "Não encontrado!"
 

@@ -14,7 +14,8 @@ class ExamesInline(admin.TabularInline):
 
 @admin.register(Consulta)
 class ConsultaAdmin(admin.ModelAdmin):
-    list_display = ['numero_guia_consulta', 'cod_medico', 'data_consulta', 'valor_consulta']
+    list_display = ['numero_guia_consulta', 'cod_medico', 'data_consulta', 'num_exames','valor_exames',
+                    'valor_consulta', 'total_da_consulta']
     list_display_links = list_display
     search_fields = ['numero_guia_consulta']
     list_filter = ['cod_medico', 'data_consulta']

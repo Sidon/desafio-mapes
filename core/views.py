@@ -40,6 +40,7 @@ class DefaultsMixin(object):
     )
 
 
+
 class ConsultaListView(ListView):
     model = Consulta
     template_name = 'core/Consulta_list.html'
@@ -51,9 +52,6 @@ class ConsultaListView(ListView):
         RequestConfig(self.request, paginate={'per_page': 10}).configure(table)
         context['table'] = table
         return context
-
-
-
 
 
 class ExameListView(ListView):

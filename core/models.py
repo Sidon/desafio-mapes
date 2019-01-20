@@ -29,6 +29,19 @@ class Consulta(models.Model):
         verbose_name = 'Consulta'
         verbose_name_plural = 'Consultas'
 
+    def num_exames(self):
+        return self.exames.all().count()
+
+    def valor_exames(self):
+        soma = 0
+        for exame in self.exames.all():
+            soma += exame.valor_exame
+        return soma
+
+    def total_da_consulta(self):
+        return self.valor_consulta+self.valor_exames()
+
+
 class ExameRealizado(models.Model):
     exame = models.ForeignKey(Exame, related_name='realizados', on_delete=models.CASCADE)
     consulta = models.ForeignKey(Consulta, related_name='exames', on_delete=models.CASCADE)
