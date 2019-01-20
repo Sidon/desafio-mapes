@@ -51,14 +51,6 @@
                     </li>
 
 
-                    <li class="nav-item {% if request.resolver_match.view_name == "core:logposts" %}active{% endif %}">
-                        <a class="nav-link" href="{% url 'core:logposts' %}">
-                            <i class="nc-icon nc-puzzle-10"></i>
-                            <p>Posts Log</p>
-                        </a>
-                    </li>
-
-
                     <li>
                         <a class="nav-link" href="{% url 'admin:index' %}">
                             <i class="nc-icon nc-settings-gear-64"></i>

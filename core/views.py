@@ -116,60 +116,6 @@ class ConsultaViewSet(DefaultsMixin, LoggingMixin, viewsets.ModelViewSet):
         log_api.update_api(data)
         serializer.save()
 
-
-class TrackingViewSet(DefaultsMixin, LoggingMixin, viewsets.ReadOnlyModelViewSet):
-    serializer_class = TrackSerializer
-    search_fields = ('user','host', )
-    queryset = APIRequestLog.objects.all()
-
-
-    def get_queryset(self):
-        queryset = APIRequestLog.objects.all()
-        limit = self.request.query_params.get('limit', None)
-        last = self.request.query_params.get('last', None)
-
-        if limit is not None:
-            queryset = queryset[:int(limit)]
-        elif last is not None:
-            return queryset.order_by('-numero_Consulta')[:int(last)]
-        return queryset
-
-
-class LogPostsViewSet(DefaultsMixin, LoggingMixin, viewsets.ReadOnlyModelViewSet):
-    serializer_class = LogdbSerializer
-    queryset =Logdb.objects.all()
-
-    def get_queryset(self):
-        queryset = Logdb.objects.all()
-        limit = self.request.query_params.get('limit', None)
-        last = self.request.query_params.get('last', None)
-
-        if limit is not None:
-            queryset = queryset[:int(limit)]
-        elif last is not None:
-            return queryset[:int(last)]
-        return queryset
-
-class LogdbListView(ListView):
-    model = Logdb
-    template_name = 'core/log_posts_list.html'
-    context_object_name = 'logdb'
-
-    def get_context_data(self, **kwargs):
-        context = super(LogdbListView, self).get_context_data(**kwargs)
-        table = LogdbTable(Logdb.objects.all().order_by('-pk'))
-        RequestConfig(self.request, paginate={'per_page': 30}).configure(table)
-        context['table'] = table
-        return context
-
-
-def _log_post(obj, before, rq):
-
-    data = {"user_id": str(rq.user), "numero_Consulta": obj.numero_Consulta,
-            "dados_atual": obj.dados_Consulta, "dados_anterior": before}
-    log_api.update_api(data)
-
-
 class ConsultaCreateView(CreateView):
     model = Consulta
     template_name = 'core/consulta-create.html'

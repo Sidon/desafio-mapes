@@ -3,12 +3,11 @@
 ######################################
 
 
-Description
-*************
+Descrição
+***********
 O teste consiste em implementar um caso de uso.
 Exigências: django, jquery, ajax, bootstrap, postgres, teste unitário.
 
-A
 
 :Date: **18/01/2019**
 :Author: **Sidon Duarte**
@@ -17,8 +16,8 @@ TL;DR
 *******
 A aplicação foi hospedada no `Heroku <http://www.heroku.com>`_ . Para testá-la, `https://sdn-mapes.herokuapp.com/>`.
 
-Work Environment:
-******************
+Ambiente de desenvolvimento:
+****************************
 
     +-------------------+---------------------------+------------+
     | Resource          | Description               | Version    |
@@ -45,17 +44,46 @@ Work Environment:
 
 Para Instalar localmente
 ************************
-Apos clonar o repoditorio, instale os requirements, e rode o sistema
+1) Clone o repositório e navegue para o diretorio
 
-```
-git clone
-cd
-python manager.py runserver
-```
+.. code-block::
+
+    $ git clone https://github.com/Sidon/desafio-mapes.git
+    $ cd desafio-mapes
+
+2) Instale os pacotes necessários
+
+.. code-block::
+
+    pip install -r requirements.txt
+
+3) Execute os testes do sistema (criacao do BD):
+
+.. code-block::
+
+    $ python manage.py test
+
+3) Crie o banco de dados com os dados iniciais
+
+.. code-block::
+
+    $ python manage.py initialdata
 
 
+4) Execute a aplicação:
 
-Comandos Curl
+.. code-block::
+
+    $ python manage.py runserver
+
+5) Acesse a pagina principal
+
+.. code-block::
+
+    http://127.0.0.1:8000/
+
+
+Acessando a API via Curl
 ***********************************
 
 API Root:
@@ -67,22 +95,88 @@ API Root:
     "api/logging":"https://tikal-challenge.herokuapp.com/api/api/logging/"}
 
 
-Listar consultas
+Listar todas consultas
 =========================
 ::
 
-    curl -H 'Accept: application/json; indent=4' -u admin:master.21 curl https://sdn-mapes.herokuapp.com/api/consultas/
-    {
-        "count": 13,
-        "next": "https://tikal-challenge.herokuapp.com/api/api/processos/?page=2",
-        "previous": null,
-        "results": [
-            {
-                "user": 1,
-                "numero_processo": "00000000000000000001",
-                "dados_processo": "Amet porttitor eget dolor morbi. Magna fringilla urna porttitor rhoncus. In vitae turpis massa sed elementum.",
-                "links": {
-                    "self": "https://tikal-challenge.herokuapp.com/api/api/processos/32/"
-                }
-            },
 
+    curl -H 'Accept: application/json; indent=4' -u admin:master.21 https://sdn-mapes.herokuapp.com/api/consultas/
+    [
+        {
+            "numero_guia_consulta": 1,
+            "cod_medico": 123,
+            "nome_medico": "João da Silva",
+            "data_consulta": "2017-01-02",
+            "valor_consulta": "90.00",
+            "valor_exames": 23.0,
+            "total_da_consulta": 113.0,
+            "exames": [
+                {
+                    "id": 216,
+                    "exame": "Exame Laboratorial 2222",
+                    "valor": 15.0
+                },
+                {
+                    "id": 227,
+                    "exame": "Exame Laboratorial 3333",
+                    "valor": 8.0
+                }
+            ],
+            "links": {
+                "self": "https://sdn-mapes.herokuapp.com/api/consultas/301/"
+            }
+        },
+
+        .....
+
+    ]
+Listar somente as 2 primeiras consultas
+=======================================
+::
+
+    curl -H 'Accept:application/json;indent=4' -u admin:master.21 https://sdn-mapes.herokuapp.com/api/consultas/?limit=2
+    [
+        {
+            "numero_guia_consulta": 1,
+            "cod_medico": 123,
+            "nome_medico": "João da Silva",
+            "data_consulta": "2017-01-02",
+            "valor_consulta": "90.00",
+            "valor_exames": 23.0,
+            "total_da_consulta": 113.0,
+            "exames": [
+                {
+                    "id": 216,
+                    "exame": "Exame Laboratorial 2222",
+                    "valor": 15.0
+                },
+                {
+                    "id": 227,
+                    "exame": "Exame Laboratorial 3333",
+                    "valor": 8.0
+                }
+            ],
+            "links": {
+                "self": "https://sdn-mapes.herokuapp.com/api/consultas/301/"
+            }
+        },
+        {
+            "numero_guia_consulta": 2,
+            "cod_medico": 124,
+            "nome_medico": "José Ramos",
+            "data_consulta": "2017-02-02",
+            "valor_consulta": "91.00",
+            "valor_exames": 12.0,
+            "total_da_consulta": 103.0,
+            "exames": [
+                {
+                    "id": 244,
+                    "exame": "Exame Laboratorial 4444",
+                    "valor": 12.0
+                }
+            ],
+            "links": {
+                "self": "https://sdn-mapes.herokuapp.com/api/consultas/302/"
+            }
+        }
+    ]
