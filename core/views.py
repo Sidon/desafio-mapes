@@ -1,12 +1,14 @@
+import os
 from collections import namedtuple
 from django.http import HttpResponseRedirect
-from django.views.generic import ListView, CreateView, UpdateView
+from django.views.generic import ListView, CreateView, UpdateView, TemplateView
 from django_tables2 import RequestConfig
 from django.core.exceptions import ValidationError
 from rest_framework import authentication, permissions, viewsets, filters
 from rest_framework_tracking.mixins import LoggingMixin
 from rest_framework.generics import ListAPIView
 from django_filters.rest_framework import DjangoFilterBackend
+from sdnmapes import settings
 from .models import Consulta, ExameRealizado, Logdb
 from .serializers import ConsultaSerializer, TrackSerializer, LogdbSerializer
 from .tables import ConsultaTable, ExamesTable, LogdbTable
@@ -171,8 +173,19 @@ class ExameUpdateView(UpdateView):
 
 
 
-# class ListConsultasMedido(ListAPIView):
-#     serializer_class = None
-#
-#     def get_queryset(self):
-#         medico = self.request.medico
+class ReadMeView(TemplateView):
+    template_name = "core/readme.html"
+
+    def get_context_data(self, **kwargs):
+        rst_file = os.path.join(settings.BASE_DIR, 'README.rst')
+        with open(rst_file, 'r') as f:
+            text = f.read()
+
+        print(text)
+        # Call the base implementation first to get a context
+        context = super().get_context_data(**kwargs)
+        context['text'] = text
+
+        return context
+
+

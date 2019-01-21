@@ -1,20 +1,23 @@
 ######################################
-``Mapes Teste desenvolvedor Django``
+``Mapes Teste [desenvolvedor Django]``
 ######################################
 
 
 Descrição
 ***********
+
 | O teste consiste em implementar um caso de uso.
 | Exigências: django, jquery, ajax, bootstrap, postgres, teste unitário.
-
+|
 
 :Date: **18/01/2019**
 :Author: **Sidon Duarte**
 
 TL;DR
 *******
-A aplicação foi hospedada no `Heroku <http://www.heroku.com>`_ . Para testá-la clique: https://sdn-mapes.herokuapp.com/.
+| A aplicação foi hospedada no `Heroku <http://www.heroku.com>`_.
+| Para testá-la clique: https://sdn-mapes.herokuapp.com/.
+| Repositorio no github: https://github.com/Sidon/desafio-mapes.
 
 Ambiente de desenvolvimento:
 ****************************
@@ -44,21 +47,24 @@ Ambiente de desenvolvimento:
 
 Para Instalar localmente
 ************************
-1) Clone o repositório e navegue para o diretorio
+
+1 - Clone o repositório e navegue para o diretorio
 
 .. code-block::
 
-    $ git clone https://github.com/Sidon/desafio-mapes.git
-    $ cd desafio-mapes
+    git clone https://github.com/Sidon/desafio-mapes.git
+    cd desafio-mapes
 
-2) Instale os pacotes necessários
+
+
+2 - Instale os pacotes necessários
 
 .. code-block::
 
     pip install -r requirements.txt
 
 
-2) Crie o banco de dados
+3 - Crie o banco de dados
 
 .. code-block::
 
@@ -70,26 +76,26 @@ Para Instalar localmente
 
 
 
-3) Execute os testes do sistema :
+4 - Execute os testes do sistema :
 
 .. code-block::
 
     $ python manage.py test
 
-4) Crie o banco de dados com os dados iniciais
+5 -  Crie o banco de dados com os dados iniciais
 
 .. code-block::
 
     $ python manage.py initialdata
 
 
-5) Execute a aplicação:
+6 -  Execute a aplicação:
 
 .. code-block::
 
     $ python manage.py runserver
 
-6) Acesse a pagina principal
+7 -  Acesse a pagina principal
 
 .. code-block::
 
@@ -194,9 +200,8 @@ Listar somente as 2 primeiras consultas
         }
     ]
 
-
 Listar somente as consultas do médico cujo código é 124
-======================================================
+========================================================
 ::
 
     curl -H 'Accept:application/json;indent=4' -u admin:master.21 https://sdn-mapes.herokuapp.com/api/consultas/?codigo_medico=124

@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'django_filters',
     'django_tables2',
     'bootstrap4',
+    'django_markup',
     'core'
 ]
 

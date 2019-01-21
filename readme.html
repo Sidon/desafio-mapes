@@ -1,0 +1,307 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title></title><style type="text/css">body{
+ font-family: helvetica;
+ color: #222;
+}
+
+li>p{
+ margin-bottom: 0;
+}
+
+.line{
+ margin-bottom: 0.3em;
+ display: table;
+}
+
+.admonition-title {
+    font-size: 1.3em;
+    font-weight: bold;
+}
+
+aside{
+ float: right;
+ width: 20%;
+ display: table;
+ padding: 1em;
+ margin: 1em;
+ margin-right: 0;
+}
+
+.footnote, .cite{
+ width: 98%;
+ display: table;
+ border: 1px solid #ddd;
+ padding: 0.5%;
+ margin: 0.5%;
+}
+
+.footnote .du-label, .cite .du-label{
+ float: left;
+ height: 100%;
+ width: 5%;
+ margin-right: 1em;
+ padding: 0.5%;
+ text-align: center;
+ display: table;
+}
+
+th, th p{
+ font-weight: bold;
+}
+
+.field-label{
+ font-weight: bold;
+}
+
+ol.arabic{
+ list-style-type: decimal;
+}
+
+ol.loweralpha{
+ list-style-type: lower-alpha;
+}
+
+ol.upperalpha{
+ list-style-type: upper-alpha;
+}
+
+ol.lowerroman{
+ list-style-type: lower-roman;
+}
+
+ol.upperroman{
+ list-style-type: upper-roman;
+}
+
+img.align-left{
+ float: left;
+}
+
+img.align-right{
+ float: right;
+}
+</style></head><body><h1><code>Mapes Teste desenvolvedor Django</code></h1><section id="descricao"><header><h2>Descrição</h2></header><div><div>O teste consiste em implementar um caso de uso.</div><div>Exigências: django, jquery, ajax, bootstrap, postgres, teste unitário.</div></div><table><tr><td class="field-label">Date</td><td><p><strong>18/01/2019</strong></p></td></tr><tr><td class="field-label">Author</td><td><p><strong>Sidon Duarte</strong></p></td></tr></table></section><section id="tl-dr"><header><h2>TL;DR</h2></header><p>A aplicação foi hospedada no <a class="reference external" href="http://www.heroku.com">Heroku</a> . Para testá-la clique: <a class="reference external" href="https://sdn-mapes.herokuapp.com/">https://sdn-mapes.herokuapp.com/</a>.</p></section><section id="ambiente-de-desenvolvimento"><header><h2>Ambiente de desenvolvimento:</h2></header><blockquote><table><thead><tr><th><p>Resource</p></th><th><p>Description</p></th><th><p>Version</p></th></tr></thead><tbody><tr><td><p>Computer</p></td><td><p>Desktop 8 GB Memory</p></td><td><p>I5 G5</p></td></tr><tr><td><p>Operating System</p></td><td><p>Ubuntu  LTS</p></td><td><p>18.04</p></td></tr><tr><td><p>Editor/IDE</p></td><td><p>Pycharm</p></td><td><p>2018.3.2</p></td></tr><tr><td><p>venv</p></td><td><p>Conda (Miniconda)</p></td><td><p>4.3.14</p></td></tr><tr><td rowspan="2"><p>Devel Platform</p></td><td rowspan="2"><p>Django/Python</p></td><td rowspan="2"><p>3.7</p></td></tr><tr></tr><tr><td><p>CI</p></td><td><p>CircleCI</p></td><td><p>2017-08</p></td></tr><tr><td><p>Coverage</p></td><td><p>Codecov</p></td><td>.</td></tr><tr><td><p>Django</p></td><td><p>Main framework</p></td><td><p>2.1</p></td></tr><tr><td><p>DRF</p></td><td><p>dajano-rest-fw</p></td><td><p>3.9</p></td></tr></tbody></table></blockquote></section><section id="para-instalar-localmente"><header><h2>Para Instalar localmente</h2></header><ol class="arabic"><li><p>Clone o repositório e navegue para o diretorio</p></li></ol><div class="alert-message block-message system-message error"><p class="system-message-title admonition-title">System Message: ERROR/3</p><span class="literal">README.rst</span>line 49 <p>Error in "code-block" directive:
+1 argument(s) required, 0 supplied.</p><pre>.. code-block::
+
+    $ git clone https://github.com/Sidon/desafio-mapes.git
+    $ cd desafio-mapes
+</pre></div><ol class="arabic" start="2"><li><p>Instale os pacotes necessários</p></li></ol><div class="alert-message block-message system-message error"><p class="system-message-title admonition-title">System Message: ERROR/3</p><span class="literal">README.rst</span>line 56 <p>Error in "code-block" directive:
+1 argument(s) required, 0 supplied.</p><pre>.. code-block::
+
+    pip install -r requirements.txt
+
+</pre></div><ol class="arabic" start="2"><li><p>Crie o banco de dados</p></li></ol><div class="alert-message block-message system-message error"><p class="system-message-title admonition-title">System Message: ERROR/3</p><span class="literal">README.rst</span>line 63 <p>Error in "code-block" directive:
+1 argument(s) required, 0 supplied.</p><pre>.. code-block::
+
+    $ python manage.py makemigrations
+    $ python manage.py migrate
+
+    Obs.:
+      Para usar o postgres descomente o bloco de código em sdnmapes.settings
+
+
+</pre></div><ol class="arabic" start="3"><li><p>Execute os testes do sistema :</p></li></ol><div class="alert-message block-message system-message error"><p class="system-message-title admonition-title">System Message: ERROR/3</p><span class="literal">README.rst</span>line 75 <p>Error in "code-block" directive:
+1 argument(s) required, 0 supplied.</p><pre>.. code-block::
+
+    $ python manage.py test
+</pre></div><ol class="arabic" start="4"><li><p>Crie o banco de dados com os dados iniciais</p></li></ol><div class="alert-message block-message system-message error"><p class="system-message-title admonition-title">System Message: ERROR/3</p><span class="literal">README.rst</span>line 81 <p>Error in "code-block" directive:
+1 argument(s) required, 0 supplied.</p><pre>.. code-block::
+
+    $ python manage.py initialdata
+
+</pre></div><ol class="arabic" start="5"><li><p>Execute a aplicação:</p></li></ol><div class="alert-message block-message system-message error"><p class="system-message-title admonition-title">System Message: ERROR/3</p><span class="literal">README.rst</span>line 88 <p>Error in "code-block" directive:
+1 argument(s) required, 0 supplied.</p><pre>.. code-block::
+
+    $ python manage.py runserver
+</pre></div><ol class="arabic" start="6"><li><p>Acesse a pagina principal</p></li></ol><div class="alert-message block-message system-message error"><p class="system-message-title admonition-title">System Message: ERROR/3</p><span class="literal">README.rst</span>line 94 <p>Error in "code-block" directive:
+1 argument(s) required, 0 supplied.</p><pre>.. code-block::
+
+    http://127.0.0.1:8000/
+
+</pre></div></section><section id="acessando-a-api-via-curl"><header><h2>Acessando a API via Curl</h2></header><section id="api-root"><header><h3>API Root:</h3></header><pre>$ curl https://sdn-mapes.herokuapp.com/api/
+  "api/logging":"https://tikal-challenge.herokuapp.com/api/api/logging/"}</pre></section><section id="listar-todas-consultas"><header><h3>Listar todas consultas</h3></header><pre>curl -H 'Accept: application/json; indent=4' -u admin:master.21 https://sdn-mapes.herokuapp.com/api/consultas/
+[
+    {
+        "numero_guia_consulta": 1,
+        "cod_medico": 123,
+        "nome_medico": "João da Silva",
+        "data_consulta": "2017-01-02",
+        "valor_consulta": "90.00",
+        "valor_exames": 23.0,
+        "total_da_consulta": 113.0,
+        "exames": [
+            {
+                "id": 216,
+                "exame": "Exame Laboratorial 2222",
+                "valor": 15.0
+            },
+            {
+                "id": 227,
+                "exame": "Exame Laboratorial 3333",
+                "valor": 8.0
+            }
+        ],
+        "links": {
+            "self": "https://sdn-mapes.herokuapp.com/api/consultas/301/"
+        }
+    },
+
+    .....
+
+]</pre></section><section id="listar-somente-as-2-primeiras-consultas"><header><h3>Listar somente as 2 primeiras consultas</h3></header><pre>curl -H 'Accept:application/json;indent=4' -u admin:master.21 https://sdn-mapes.herokuapp.com/api/consultas/?limit=2
+[
+    {
+        "numero_guia_consulta": 1,
+        "cod_medico": 123,
+        "nome_medico": "João da Silva",
+        "data_consulta": "2017-01-02",
+        "valor_consulta": "90.00",
+        "valor_exames": 23.0,
+        "total_da_consulta": 113.0,
+        "exames": [
+            {
+                "id": 216,
+                "exame": "Exame Laboratorial 2222",
+                "valor": 15.0
+            },
+            {
+                "id": 227,
+                "exame": "Exame Laboratorial 3333",
+                "valor": 8.0
+            }
+        ],
+        "links": {
+            "self": "https://sdn-mapes.herokuapp.com/api/consultas/301/"
+        }
+    },
+    {
+        "numero_guia_consulta": 2,
+        "cod_medico": 124,
+        "nome_medico": "José Ramos",
+        "data_consulta": "2017-02-02",
+        "valor_consulta": "91.00",
+        "valor_exames": 12.0,
+        "total_da_consulta": 103.0,
+        "exames": [
+            {
+                "id": 244,
+                "exame": "Exame Laboratorial 4444",
+                "valor": 12.0
+            }
+        ],
+        "links": {
+            "self": "https://sdn-mapes.herokuapp.com/api/consultas/302/"
+        }
+    }
+]</pre></section><section id="listar-somente-as-consultas-do-medico-cujo-codigo-e-124"><header><h3>Listar somente as consultas do médico cujo código é 124</h3></header><div class="alert-message block-message system-message warning"><p class="system-message-title admonition-title">System Message: WARNING/2</p><span class="literal">README.rst</span>line 199 <p>Title underline too short.</p><pre>Listar somente as consultas do médico cujo código é 124
+======================================================</pre></div><pre>curl -H 'Accept:application/json;indent=4' -u admin:master.21 https://sdn-mapes.herokuapp.com/api/consultas/?codigo_medico=124
+
+[
+    {
+        "numero_guia_consulta": 2,
+        "cod_medico": 124,
+        "nome_medico": "José Ramos",
+        "data_consulta": "2017-02-02",
+        "valor_consulta": "91.00",
+        "valor_exames": 12.0,
+        "total_da_consulta": 103.0,
+        "exames": [
+            {
+                "id": 244,
+                "exame": "Exame Laboratorial 4444",
+                "valor": 12.0
+            }
+        ],
+        "links": {
+            "self": "http://127.0.0.1:8000/api/consultas/302/"
+        }
+    },
+    {
+        "numero_guia_consulta": 7,
+        "cod_medico": 124,
+        "nome_medico": "José Ramos",
+        "data_consulta": "2017-02-03",
+        "valor_consulta": "91.00",
+        "valor_exames": 0,
+        "total_da_consulta": 91.0,
+        "exames": [],
+        "links": {
+            "self": "http://127.0.0.1:8000/api/consultas/307/"
+        }
+    },
+    {
+        "numero_guia_consulta": 12,
+        "cod_medico": 124,
+        "nome_medico": "José Ramos",
+        "data_consulta": "2017-02-04",
+        "valor_consulta": "91.00",
+        "valor_exames": 12.0,
+        "total_da_consulta": 103.0,
+        "exames": [
+            {
+                "id": 247,
+                "exame": "Exame Laboratorial 4444",
+                "valor": 12.0
+            }
+        ],
+        "links": {
+            "self": "http://127.0.0.1:8000/api/consultas/312/"
+        }
+    },
+    {
+        "numero_guia_consulta": 17,
+        "cod_medico": 124,
+        "nome_medico": "José Ramos",
+        "data_consulta": "2017-02-05",
+        "valor_consulta": "91.00",
+        "valor_exames": 12.0,
+        "total_da_consulta": 103.0,
+        "exames": [
+            {
+                "id": 248,
+                "exame": "Exame Laboratorial 4444",
+                "valor": 12.0
+            }
+        ],
+        "links": {
+            "self": "http://127.0.0.1:8000/api/consultas/317/"
+        }
+    },
+    {
+        "numero_guia_consulta": 22,
+        "cod_medico": 124,
+        "nome_medico": "José Ramos",
+        "data_consulta": "2017-02-07",
+        "valor_consulta": "93.00",
+        "valor_exames": 12.0,
+        "total_da_consulta": 105.0,
+        "exames": [
+            {
+                "id": 250,
+                "exame": "Exame Laboratorial 4444",
+                "valor": 12.0
+            }
+        ],
+        "links": {
+            "self": "http://127.0.0.1:8000/api/consultas/322/"
+        }
+    },
+    {
+        "numero_guia_consulta": 27,
+        "cod_medico": 124,
+        "nome_medico": "José Ramos",
+        "data_consulta": "2018-02-01",
+        "valor_consulta": "93.00",
+        "valor_exames": 12.0,
+        "total_da_consulta": 105.0,
+        "exames": [
+            {
+                "id": 252,
+                "exame": "Exame Laboratorial 4444",
+                "valor": 12.0
+            }
+        ],
+        "links": {
+            "self": "http://127.0.0.1:8000/api/consultas/327/"
+        }
+    }
+]</pre></section></section></body></html>
