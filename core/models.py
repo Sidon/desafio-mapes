@@ -3,7 +3,6 @@ from django.db import models
 
 bnull = dict(blank=True, null=True)
 
-
 class Exame(models.Model):
     cod_exame = models.IntegerField('Codigo do exame ')
     descricao = models.CharField('Descrição do exame', max_length=120)

@@ -1,6 +1,6 @@
-######################################
-``Mapes Teste [desenvolvedor Django]``
-######################################
+#########################################
+``Teste para desenvolvimento python``
+#########################################
 
 
 Descrição
@@ -10,7 +10,7 @@ Descrição
 | Exigências: django, jquery, ajax, bootstrap, postgres, teste unitário.
 |
 
-:Date: **18/01/2019**
+:Date: **18/05/2018**
 :Author: **Sidon Duarte**
 
 TL;DR
@@ -75,7 +75,6 @@ Para Instalar localmente
       Para usar o postgres descomente o bloco de código em sdnmapes.settings
 
 
-
 4 - Execute os testes do sistema :
 
 .. code-block::
@@ -110,7 +109,7 @@ API Root:
 ::
 
     $ curl https://sdn-mapes.herokuapp.com/api/
-      "api/logging":"https://tikal-challenge.herokuapp.com/api/api/logging/"}
+      "api/logging":"https:/sdn-mapes.herokuapp.com/api/api/logging/"}
 
 
 Listar todas consultas
