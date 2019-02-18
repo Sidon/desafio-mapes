@@ -124,6 +124,7 @@ class ConsultaViewSet(DefaultsMixin, LoggingMixin, viewsets.ModelViewSet):
         log_api.update_api(data)
         serializer.save()
 
+
 class ConsultaCreateView(CreateView):
     model = Consulta
     template_name = 'core/consulta-create.html'
